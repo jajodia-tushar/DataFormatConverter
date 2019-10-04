@@ -9,7 +9,6 @@ import com.tavisca.dataconversion.model.Employee;
 public class CSVConverter {
 
     public static String getCSVFormat(Object object) throws JsonProcessingException {
-
         CsvMapper mapper = new CsvMapper();
         CsvSchema columns = mapper.schemaFor(Employee.class);
         return mapper.writer(columns).writeValueAsString(object);
