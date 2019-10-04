@@ -4,28 +4,36 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import com.tavisca.dataconversion.model.Employee;
 
 import java.beans.XMLEncoder;
-import java.io.FileNotFoundException;
+import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class XMLConverter {
-
 
     public static String writeXMLFormatToFile(Object object) throws JsonProcessingException {
         ObjectMapper objectMapper = new XmlMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
         return objectMapper.writeValueAsString(object);
-
     }
 
-    public static void serializeToXML (Object object) throws IOException{
-        FileOutputStream fos = new FileOutputStream("data.xml");
-        XMLEncoder encoder = new XMLEncoder(fos);
+    public static void serializeToXML (Employee object) throws IOException{
+        FileOutputStream fileOutputStream = new FileOutputStream("data.xml");
+        XMLEncoder encoder = new XMLEncoder(new BufferedOutputStream(fileOutputStream));
         encoder.writeObject(object);
         encoder.close();
-        fos.close();
+        fileOutputStream.close();
+    }
+
+    public static void serializeToXML (ArrayList<Employee> object) throws IOException{
+        Employee[] employees = object.toArray(new Employee[object.size()]);
+        FileOutputStream fileOutputStream = new FileOutputStream("data.xml");
+        XMLEncoder encoder = new XMLEncoder(new BufferedOutputStream(fileOutputStream));
+        encoder.writeObject(employees);
+        encoder.close();
+        fileOutputStream.close();
     }
 }

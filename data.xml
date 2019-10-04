@@ -1,17 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="10" class="java.beans.XMLDecoder">
- <object class="com.tavisca.dataconversion.model.Employee">
-  <void property="address">
-   <string>Nepal</string>
+ <array class="com.tavisca.dataconversion.model.Employee" length="2">
+  <void index="0">
+   <object class="com.tavisca.dataconversion.model.Employee">
+    <void property="address">
+     <string>Nepal</string>
+    </void>
+    <void property="email">
+     <string>jajodiatushar@gmail.com</string>
+    </void>
+    <void property="id">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>Tushar</string>
+    </void>
+   </object>
   </void>
-  <void property="email">
-   <string>jajodiatushar@gmail.com</string>
+  <void index="1">
+   <object class="com.tavisca.dataconversion.model.Employee">
+    <void property="address">
+     <string>India</string>
+    </void>
+    <void property="email">
+     <string>aniketSingla@gmail.com</string>
+    </void>
+    <void property="id">
+     <int>2</int>
+    </void>
+    <void property="name">
+     <string>Aniket</string>
+    </void>
+   </object>
   </void>
-  <void property="id">
-   <int>1</int>
-  </void>
-  <void property="name">
-   <string>Tushar</string>
-  </void>
- </object>
+ </array>
 </java>

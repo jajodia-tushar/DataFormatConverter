@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class MysqlRepository {
     Connection connection;
 
-    MysqlRepository(){
+    public MysqlRepository(){
         try {
             this.connection = MySQLConnection.getConnection();
         } catch (SQLException | ClassNotFoundException e) {
@@ -17,7 +17,7 @@ public class MysqlRepository {
         }
     }
 
-    public ArrayList<Employee> getAllData(){
+    public ArrayList<Employee> getAllEmployee(){
         ArrayList<Employee> list = new ArrayList<>();
         try {
             PreparedStatement statement = this.connection.prepareStatement("select * from employee");
@@ -36,4 +36,20 @@ public class MysqlRepository {
     }
 
 
+    public Employee getSingleEmployee() {
+        Employee emp = new Employee();
+        try {
+            PreparedStatement statement = this.connection.prepareStatement("select * from employee where id = 1");
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()){
+                emp.setId(resultSet.getInt(1));
+                emp.setName(resultSet.getString(2));
+                emp.setEmail(resultSet.getString(3));
+                emp.setAddress(resultSet.getString(4));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return emp;
+    }
 }

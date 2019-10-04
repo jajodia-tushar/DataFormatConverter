@@ -13,6 +13,6 @@ public class DataSource {
 
     public ArrayList<Employee> getAllEmployee(){
         MysqlRepository mysqlRepository = new MysqlRepository();
-        return mysqlRepository.getAllData();
+        return mysqlRepository.getAllEmployee();
     }
 }
