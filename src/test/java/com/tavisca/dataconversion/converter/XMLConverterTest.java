@@ -6,7 +6,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class XMLConverterTest {
-
     private static DataSource dataSource;
 
     @BeforeClass
@@ -23,6 +22,12 @@ public class XMLConverterTest {
 
     @Test
     public void willConvertGroupOfObjectToXMLFormat() throws JsonProcessingException {
+        String jsonFormat = XMLConverter.writeXMLFormatToFile(dataSource.getAllEmployee());
+        System.out.println(jsonFormat);
+    }
+
+    @Test
+    public void willWriteSingleObjectToXMLFormatInFile() throws JsonProcessingException {
         String jsonFormat = XMLConverter.writeXMLFormatToFile(dataSource.getAllEmployee());
         System.out.println(jsonFormat);
     }

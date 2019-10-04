@@ -4,8 +4,6 @@ import com.tavisca.dataconversion.data.DataSource;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class JSONConverterTest {
 
     private static DataSource dataSource;
@@ -14,7 +12,6 @@ public class JSONConverterTest {
     public static void initilize(){
         dataSource = new DataSource();
     }
-
 
     @Test
     public void willConvertSingleObjectToJSONFormat(){

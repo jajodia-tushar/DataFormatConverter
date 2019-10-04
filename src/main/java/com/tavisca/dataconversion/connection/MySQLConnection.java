@@ -5,9 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MySQLConnection {
-    Connection connection;
-
-    private Connection getConnection() throws SQLException, ClassNotFoundException {
+    static Connection connection;
+    public static Connection getConnection() throws SQLException, ClassNotFoundException {
         if(connection == null) {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/gce", "root", "");
