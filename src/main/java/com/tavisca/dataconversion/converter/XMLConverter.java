@@ -14,10 +14,15 @@ import java.util.ArrayList;
 
 public class XMLConverter {
 
-    public static String writeXMLFormatToFile(Object object) throws JsonProcessingException {
-        ObjectMapper objectMapper = new XmlMapper();
-        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-        return objectMapper.writeValueAsString(object);
+    public static String getXMLFormat(Object object) {
+        try {
+            ObjectMapper objectMapper = new XmlMapper();
+            objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+            return objectMapper.writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
     public static void serializeToXML (Employee object) throws IOException{

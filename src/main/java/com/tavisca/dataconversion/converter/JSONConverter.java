@@ -10,7 +10,7 @@ public class JSONConverter {
         ObjectMapper obj = new ObjectMapper();
         String result = "";
         try {
-            result = obj.writeValueAsString(inputData);
+            result = obj.writerWithDefaultPrettyPrinter().writeValueAsString(inputData);
 
         } catch (IOException e) {
             e.printStackTrace();

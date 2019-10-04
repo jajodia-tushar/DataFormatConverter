@@ -28,14 +28,14 @@ public class XMLConverterTest {
     @Test
     public void willConvertSingleObjectToXMLFormat() throws JsonProcessingException {
         when(mysqlRepository.getSingleEmployee()).thenReturn(list.get(0));
-        String jsonFormat = XMLConverter.writeXMLFormatToFile(mysqlRepository.getSingleEmployee());
+        String jsonFormat = XMLConverter.getXMLFormat(mysqlRepository.getSingleEmployee());
         System.out.println(jsonFormat);
     }
 
     @Test
     public void willConvertGroupOfObjectToXMLFormat() throws JsonProcessingException {
         when(mysqlRepository.getAllEmployee()).thenReturn(list);
-        String jsonFormat = XMLConverter.writeXMLFormatToFile(mysqlRepository.getAllEmployee());
+        String jsonFormat = XMLConverter.getXMLFormat(mysqlRepository.getAllEmployee());
         System.out.println(jsonFormat);
     }
 
