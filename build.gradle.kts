@@ -16,7 +16,6 @@ dependencies {
     compile("com.fasterxml.jackson.dataformat","jackson-dataformat-csv","2.8.8")
     compile("mysql",  "mysql-connector-java","5.1.6")
     testImplementation("org.mockito:mockito-junit-jupiter:2.17.0")
-
 }
 
 configure<JavaPluginConvention> {
