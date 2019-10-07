@@ -9,9 +9,13 @@ public class CSVConverter {
 
     public static String getCSVFormat(Object object) {
         CsvMapper mapper = new CsvMapper();
-        CsvSchema columns = mapper.schemaFor(Employee.class);
+        CsvSchema schema = CsvSchema.builder()
+                .addColumn("deptName")
+                .addColumn("deptId")
+                .addColumn("allEmployee")
+                .build();
         try {
-            return mapper.writer(columns).writeValueAsString(object);
+            return mapper.writer(schema).writeValueAsString(object);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
