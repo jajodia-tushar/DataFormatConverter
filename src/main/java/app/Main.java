@@ -16,10 +16,9 @@ public class Main {
     static Scanner in;
 
     public static void main(String[] args) {
-
-        MysqlRepository mysqlRepository = new MysqlRepository();
-        ArrayList<Employee> allEmployee = mysqlRepository.getAllEmployee();
         in = new Scanner(System.in);
+
+        ArrayList<Employee> allEmployee = getEmployees();
         HashMap<Integer, Runnable> myMap = new HashMap<Integer, Runnable>()
         {{
             put(1,()->jsonHandler(allEmployee));
@@ -29,11 +28,16 @@ public class Main {
 
         while(true){
             displayConsoleMessage();
-            int option = in.nextInt();
-            if(!myMap.containsKey(option))
+            int selectedOption = in.nextInt();
+            if(!myMap.containsKey(selectedOption))
                 break;
-            myMap.get(option).run();
+            myMap.get(selectedOption).run();
         }
+    }
+
+    private static ArrayList<Employee> getEmployees() {
+        MysqlRepository mysqlRepository = new MysqlRepository();
+        return mysqlRepository.getAllEmployee();
     }
 
     private static void xmlHandler(ArrayList<Employee> allEmployee) {

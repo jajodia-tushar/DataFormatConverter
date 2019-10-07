@@ -1,6 +1,5 @@
 package com.tavisca.dataconversion.fileHandling;
 
-import com.tavisca.dataconversion.fileHandling.FileHandler;
 import org.junit.Test;
 
 import java.io.IOException;
