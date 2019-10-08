@@ -19,8 +19,8 @@ public class CSVConverterTest {
     public static void initilize(){
         mysqlRepository = Mockito.mock(MysqlRepository.class);
         list = new ArrayList<Employee>(){{
-            add(new Employee(1,"Tushar","jajodiatushar@gmail.com","Nepal"));
-            add(new Employee(2,"Aniket","aniketSingla@gmail.com","India"));
+            add(new Employee(1,"Tushar","jajodiatushar@gmail.com","Nepal",1));
+            add(new Employee(2,"Aniket","aniketSingla@gmail.com","India",2));
         }};
     }
 

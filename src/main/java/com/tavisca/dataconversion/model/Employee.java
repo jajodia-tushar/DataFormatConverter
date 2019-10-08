@@ -1,5 +1,7 @@
 package com.tavisca.dataconversion.model;
 
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
+
 import java.io.Serializable;
 
 public class Employee implements Serializable {
@@ -8,18 +10,18 @@ public class Employee implements Serializable {
     private String name;
     private String email;
     private String address;
-    private int deptId;
+    @JsonUnwrapped
+    private Department department;
 
-    public Employee(){
-
+    public Employee() {
     }
 
-    public Employee(int id, String name, String email, String address,int deptId) {
+    public Employee(int id, String name, String email, String address, Department department) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.address = address;
-        this.deptId = deptId;
+        this.department = department;
     }
 
     public int getId() {
@@ -54,11 +56,11 @@ public class Employee implements Serializable {
         this.address = address;
     }
 
-    public int getDeptId() {
-        return deptId;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setDeptId(int deptId) {
-        this.deptId = deptId;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }
