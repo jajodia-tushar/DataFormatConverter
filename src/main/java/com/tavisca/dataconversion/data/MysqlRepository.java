@@ -20,7 +20,7 @@ public class MysqlRepository {
 
     public ArrayList<Employee> getAllEmployee(){
         ArrayList<Employee> list = new ArrayList<>();
-        try {
+        try {   
             PreparedStatement statement = this.connection.prepareStatement("select * from employee");
             ResultSet resultSet = statement.executeQuery();
             while(resultSet.next()){
