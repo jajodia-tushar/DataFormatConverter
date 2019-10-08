@@ -18,12 +18,6 @@ public class MysqlRepositoryTest {
 
 
     @Test
-    public void canGetSingleEmployee(){
-        Employee singleEmployee = mysqlRepository.getSingleEmployee();
-        assertTrue(singleEmployee != null);
-    }
-
-    @Test
     public void canGetCollectionOfEmployee(){
         ArrayList<Employee> allEmployee = mysqlRepository.getAllEmployee();
         assertTrue(allEmployee.size() > 1);

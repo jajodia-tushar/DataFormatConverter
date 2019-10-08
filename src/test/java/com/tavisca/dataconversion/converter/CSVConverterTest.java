@@ -2,6 +2,7 @@ package com.tavisca.dataconversion.converter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.tavisca.dataconversion.data.MysqlRepository;
+import com.tavisca.dataconversion.model.Department;
 import com.tavisca.dataconversion.model.Employee;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -19,17 +20,9 @@ public class CSVConverterTest {
     public static void initilize(){
         mysqlRepository = Mockito.mock(MysqlRepository.class);
         list = new ArrayList<Employee>(){{
-            add(new Employee(1,"Tushar","jajodiatushar@gmail.com","Nepal",1));
-            add(new Employee(2,"Aniket","aniketSingla@gmail.com","India",2));
+            add(new Employee(1,"Tushar","jajodiatushar@gmail.com","Nepal",new Department("CSE",1)));
+            add(new Employee(2,"Aniket","aniketSingla@gmail.com","India",new Department("MECH",2)));
         }};
-    }
-
-
-    @Test
-    public void willConvertSingleObjectToCSVFormat() throws JsonProcessingException {
-        when(mysqlRepository.getSingleEmployee()).thenReturn(list.get(0));
-        String jsonFormat = CSVConverter.getCSVFormat((mysqlRepository.getSingleEmployee()));
-        System.out.println(jsonFormat);
     }
 
     @Test
