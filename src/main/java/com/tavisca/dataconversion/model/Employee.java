@@ -3,6 +3,7 @@ package com.tavisca.dataconversion.model;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Employee implements Serializable {
 
@@ -10,6 +11,9 @@ public class Employee implements Serializable {
     private String name;
     private String email;
     private String address;
+
+    private ArrayList<String> hobbies;
+
     @JsonUnwrapped
     private Department department;
 
@@ -62,5 +66,13 @@ public class Employee implements Serializable {
 
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    public ArrayList<String> getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(ArrayList<String> hobbies) {
+        this.hobbies = hobbies;
     }
 }

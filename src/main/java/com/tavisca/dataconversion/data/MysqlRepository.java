@@ -30,10 +30,17 @@ public class MysqlRepository {
                 String email = resultSet.getString(3);
                 String address = resultSet.getString(4);
                 int deptId = resultSet.getInt(5);
+                String hobbiesData = resultSet.getString(6);
+                ArrayList<String> hobbies = new ArrayList<>();
+                for(String hobby : hobbiesData.split(",")){
+                    hobbies.add(hobby);
+                }
+
                 employee.setId(id);
                 employee.setName(name);
                 employee.setEmail(email);
                 employee.setAddress(address);
+                employee.setHobbies(hobbies);
 
                 PreparedStatement statement1 = this.connection.prepareStatement("select * from department where deptId = ?");
                 statement1.setInt(1, deptId);
