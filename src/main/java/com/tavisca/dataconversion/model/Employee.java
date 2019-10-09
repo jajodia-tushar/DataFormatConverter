@@ -11,7 +11,6 @@ public class Employee implements Serializable {
     private String name;
     private String email;
     private String address;
-
     private ArrayList<String> hobbies;
 
     @JsonUnwrapped
