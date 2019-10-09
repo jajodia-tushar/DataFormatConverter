@@ -93,7 +93,7 @@ public class MysqlRepository {
         return list;
     }
 
-    public ArrayList<AdvancedEmployee> getDynamicEmployeClass(){
+    public ArrayList<AdvancedEmployee> getAdvancedEmployeeList(){
         ArrayList<AdvancedEmployee> list = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement("select * from employee");

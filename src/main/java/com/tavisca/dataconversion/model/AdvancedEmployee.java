@@ -70,4 +70,9 @@ public class AdvancedEmployee {
     public void setDeptId(int deptId) {
         this.deptId = deptId;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

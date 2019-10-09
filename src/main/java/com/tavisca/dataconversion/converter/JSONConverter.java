@@ -18,4 +18,18 @@ public class JSONConverter {
 
         return result;
     }
+
+    public static String getJSONFormatWithOutFormat(Object inputData){
+
+        ObjectMapper obj = new ObjectMapper();
+        String result = "";
+        try {
+            result = obj.writeValueAsString(inputData);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
 }

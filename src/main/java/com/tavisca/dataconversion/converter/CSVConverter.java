@@ -10,6 +10,7 @@ import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import com.tavisca.dataconversion.model.Department;
+import com.tavisca.dataconversion.model.DepartmentWithEmployee;
 import com.tavisca.dataconversion.model.Employee;
 
 import java.io.BufferedWriter;
@@ -27,6 +28,20 @@ public class CSVConverter {
         CsvSchema columns = mapper.schemaFor(Employee.class);
         try {
             return mapper.writer(columns).writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+
+
+    public static String getCSVFormatV2(Object object) {
+        CsvMapper mapper = new CsvMapper();
+        CsvSchema columns = mapper.schemaFor(DepartmentWithEmployee.class);
+        try {
+            String finalString = mapper.writer(columns).writeValueAsString(object);
+            return finalString.replace("\"\"","\\\"");
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
