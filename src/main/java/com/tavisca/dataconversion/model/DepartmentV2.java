@@ -1,14 +1,14 @@
 package com.tavisca.dataconversion.model;
 
-public class AdvancedDepartment {
+public class DepartmentV2 {
 
     String name;
     int deptId;
 
-    public AdvancedDepartment() {
+    public DepartmentV2() {
     }
 
-    public AdvancedDepartment(String name, int deptId) {
+    public DepartmentV2(String name, int deptId) {
         this.name = name;
         this.deptId = deptId;
     }

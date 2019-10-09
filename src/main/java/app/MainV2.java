@@ -6,8 +6,8 @@ import com.tavisca.dataconversion.converter.XMLConverter;
 import com.tavisca.dataconversion.data.MysqlRepository;
 import com.tavisca.dataconversion.dataMapper.Mapper;
 import com.tavisca.dataconversion.fileHandling.FileHandler;
-import com.tavisca.dataconversion.model.AdvancedDepartment;
-import com.tavisca.dataconversion.model.AdvancedEmployee;
+import com.tavisca.dataconversion.model.DepartmentV2;
+import com.tavisca.dataconversion.model.EmployeeV2;
 import com.tavisca.dataconversion.model.DepartmentWithEmployee;
 
 import java.io.IOException;
@@ -24,9 +24,9 @@ public class MainV2 {
         in = new Scanner(System.in);
         mysqlRepository = new MysqlRepository();
 
-        ArrayList<AdvancedDepartment> advancedDepartmentList = mysqlRepository.getAdvancedDepartmentList();
-        ArrayList<AdvancedEmployee> advancedEmployeeList = mysqlRepository.getAdvancedEmployeeList();
-        ArrayList<DepartmentWithEmployee> map = Mapper.map(advancedDepartmentList, advancedEmployeeList);
+        ArrayList<DepartmentV2> departmentV2List = mysqlRepository.getAdvancedDepartmentList();
+        ArrayList<EmployeeV2> employeeV2List = mysqlRepository.getAdvancedEmployeeList();
+        ArrayList<DepartmentWithEmployee> map = Mapper.map(departmentV2List, employeeV2List);
 
         HashMap<Integer, Runnable> myMap = new HashMap<Integer, Runnable>() {{
             put(1, () -> jsonHandler(map));

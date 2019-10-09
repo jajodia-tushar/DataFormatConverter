@@ -2,7 +2,7 @@ package com.tavisca.dataconversion.model;
 
 import java.util.ArrayList;
 
-public class AdvancedEmployee {
+public class EmployeeV2 {
 
     private String empName;
     private int empId;
@@ -11,10 +11,10 @@ public class AdvancedEmployee {
     private ArrayList<String> hobbies;
     private int deptId;
 
-    public AdvancedEmployee() {
+    public EmployeeV2() {
     }
 
-    public AdvancedEmployee(String empName, int empId, String email, String address, ArrayList<String> hobbies, int deptId) {
+    public EmployeeV2(String empName, int empId, String email, String address, ArrayList<String> hobbies, int deptId) {
         this.empName = empName;
         this.empId = empId;
         this.email = email;

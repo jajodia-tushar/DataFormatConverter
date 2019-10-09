@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 import java.util.ArrayList;
 
-import static com.tavisca.dataconversion.converter.JSONConverter.getJSONFormat;
 import static com.tavisca.dataconversion.converter.JSONConverter.getJSONFormatWithOutFormat;
 
 public class DepartmentWithEmployee {
@@ -14,9 +13,9 @@ public class DepartmentWithEmployee {
     private int deptId;
     private String allEmployee;
     @JsonIgnore
-    private ArrayList<AdvancedEmployee> allEmployeeList;
+    private ArrayList<EmployeeV2> allEmployeeList;
 
-    public DepartmentWithEmployee(String deptName, int deptId, ArrayList<AdvancedEmployee> allEmployeeList) {
+    public DepartmentWithEmployee(String deptName, int deptId, ArrayList<EmployeeV2> allEmployeeList) {
         this.deptName = deptName;
         this.deptId = deptId;
         this.allEmployeeList = allEmployeeList;
@@ -48,11 +47,11 @@ public class DepartmentWithEmployee {
         this.allEmployee = allEmployee;
     }
 
-    public ArrayList<AdvancedEmployee> getAllEmployeeList() {
+    public ArrayList<EmployeeV2> getAllEmployeeList() {
         return allEmployeeList;
     }
 
-    public void setAllEmployeeList(ArrayList<AdvancedEmployee> allEmployeeList) {
+    public void setAllEmployeeList(ArrayList<EmployeeV2> allEmployeeList) {
         this.allEmployeeList = allEmployeeList;
     }
 }

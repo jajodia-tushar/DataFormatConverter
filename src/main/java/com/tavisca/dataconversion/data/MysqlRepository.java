@@ -1,16 +1,13 @@
 package com.tavisca.dataconversion.data;
 
-import com.sun.tools.internal.xjc.generator.bean.BeanGenerator;
 import com.tavisca.dataconversion.connection.MySQLConnection;
-import com.tavisca.dataconversion.model.AdvancedDepartment;
-import com.tavisca.dataconversion.model.AdvancedEmployee;
+import com.tavisca.dataconversion.model.DepartmentV2;
+import com.tavisca.dataconversion.model.EmployeeV2;
 import com.tavisca.dataconversion.model.Department;
 import com.tavisca.dataconversion.model.Employee;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.function.Predicate;
 
 public class MysqlRepository {
     Connection connection;
@@ -93,8 +90,8 @@ public class MysqlRepository {
         return list;
     }
 
-    public ArrayList<AdvancedEmployee> getAdvancedEmployeeList(){
-        ArrayList<AdvancedEmployee> list = new ArrayList<>();
+    public ArrayList<EmployeeV2> getAdvancedEmployeeList(){
+        ArrayList<EmployeeV2> list = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement("select * from employee");
             ResultSet resultSet = statement.executeQuery();
@@ -113,7 +110,7 @@ public class MysqlRepository {
                     hobbylist.add(hobby);
                 }
 
-                AdvancedEmployee employee = new AdvancedEmployee(name,empId,email,address,hobbylist,deptId);
+                EmployeeV2 employee = new EmployeeV2(name,empId,email,address,hobbylist,deptId);
                 list.add(employee);
             }
 
@@ -124,8 +121,8 @@ public class MysqlRepository {
         return list;
     }
 
-    public ArrayList<AdvancedDepartment> getAdvancedDepartmentList(){
-        ArrayList<AdvancedDepartment> list = new ArrayList<>();
+    public ArrayList<DepartmentV2> getAdvancedDepartmentList(){
+        ArrayList<DepartmentV2> list = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement("select * from department");
             ResultSet resultSet = statement.executeQuery();
@@ -134,7 +131,7 @@ public class MysqlRepository {
                 int deptId = resultSet.getInt(1);
                 String deptName = resultSet.getString(2);
 
-                AdvancedDepartment employee = new AdvancedDepartment(deptName,deptId);
+                DepartmentV2 employee = new DepartmentV2(deptName,deptId);
                 list.add(employee);
             }
         } catch (SQLException e) {
