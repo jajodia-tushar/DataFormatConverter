@@ -46,7 +46,7 @@ public class MainV2 {
     private static void csvHandler(ArrayList<DepartmentWithEmployee> map) {
         System.out.println("Please Enter the Path of File");
         String path = in.next();
-        FileHandler fileHandler = new FileHandler(path, "json");
+        FileHandler fileHandler = new FileHandler(path, "csv");
         String csvFormat = CSVConverter.getCSVFormatV2(map);
         try {
             fileHandler.createNewFile();
